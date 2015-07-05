@@ -1,0 +1,22 @@
+language:
+- node_js
+node_js:
+- '0.12'
+sudo: false
+cache:
+  directories:
+  - node_modules
+branches:
+  only:
+  - master
+script:
+- npm run build
+- npm test
+deploy:
+  provider: npm
+  email: log@logn.in
+  api_key:
+    secure: QLpAQsT98pjc+7bKJBWohTDz9H/CQ8j+fcPQFNWj7q/+1sZvMt/370bIFhxd6jFOIhh8fubEuK1fMcpSLVzznUT6wsQ7tyAkM0s5fHQ/PELVaUi6aHWZS0exePO1EwXLCwnAVm5OclcdCEldi8sjsHK954OfGKZgoeoxViaLDBSIO5zQOdmjyuKn/Oq29oepD5ew6S84wXo5ZIojj75bFIUSNzcZj00ISa3DhCBGOwmkM2RDEABvcT+sErSftfmK0wqHSDp2bAT1acDxczcFVyTLgp1TIN29dvm6y1Ttv44sGhUXOHl7PdKja933lFRDDGcqLdsutEQE60dMd56e3NQq0wtVNrBc9qsxYgoAZ3UBI9gOKbsRzXhql8XQzpijWKI4xkbk1BFEm37eXySgizq1z5AmtqOfJiS8W+9H5juBOoRUgrkmQzEQg/o3B44fumQlFy7TazAjpIdd0a/jH2G/vKleWbyRa/WTt4BgCo9rCDZaToAaif6DkrdIjHDvMbrSOVh51Gwl9hTjOqYjMHA9LH5dFxdn2hZY/HHmtG5YQxH6xTDIn6+Z4yBXjH/pFhHEVVPnbrgwt2k7ktcqGUu9xAlPqKgeo32U4WPj+43TvEG2TPS4sGtigffYHgas7/c/noPlDADgodViA6U7XwPymggl0wAwlz+3WSdbC/U=
+  on:
+    tags: true
+    repo: k-kinzal/tpr

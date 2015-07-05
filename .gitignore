@@ -1,0 +1,5 @@
+.tmp/
+dest/
+node_modules/
+src/acc/
+.DS_Store

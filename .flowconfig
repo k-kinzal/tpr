@@ -1,0 +1,10 @@
+[ignore]
+.*/dest/.*
+.*/flow-bin/vendor/examples/.*
+
+[include]
+
+[libs]
+interfaces/
+
+[options]
