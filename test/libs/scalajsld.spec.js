@@ -7,13 +7,14 @@ var scalajsld = require('../../src/libs/scalajsld');
 describe('scalajsld:', function() {
   it('support version', function() {
     return scalajsld.version().then(function(version) {
-      assert(version === '0.6.3');
+      assert(version === '0.6.4');
     })
   });
 
   it('support options', function() {
     return scalajsld.help().then(function(result) {
       assert(result.usage === 'scalajsld [options] <value> ...');
+      assert(result.options.length === 16);
       assert(result.options[0].option  === '-o <file> | --output <file>');
       assert(result.options[1].option  === '-jo <file> | --jsoutput <file>');
       assert(result.options[2].option  === '-f | --fastOpt');

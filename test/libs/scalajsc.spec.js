@@ -1,6 +1,7 @@
 'use strict';
 
 var assert = require('power-assert');
+var path = require('path');
 var scalajsc = require('../../src/libs/scalajsc');
 
 describe('scalajsc:', function() {
@@ -13,7 +14,7 @@ describe('scalajsc:', function() {
   it('support options', function() {
     return scalajsc.help().then(function(result) {
       assert(result.usage === 'scalac <options> <source files>');
-      assert(result.options.length === 33);
+      assert(result.options.length === 37);
       assert(result.options[0].option  === '-Dproperty=value');
       assert(result.options[1].option  === '-J<flag>');
       assert(result.options[2].option  === '-P:<plugin>:<opt>');
@@ -47,6 +48,10 @@ describe('scalajsc:', function() {
       assert(result.options[30].option === '-verbose');
       assert(result.options[31].option === '-version');
       assert(result.options[32].option === '@<file>');
+      assert(result.options[33].option === '-P:scalajs:mapSourceURI:FROM_URI[->TO_URI]');
+      assert(result.options[34].option === '-P:scalajs:fixClassOf');
+      assert(result.options[35].option === '-P:scalajs:relSourceMap:<URI>');
+      assert(result.options[36].option === '-P:scalajs:absSourceMap:<URI>');
     });
   });
 
@@ -64,7 +69,8 @@ describe('scalajsc:', function() {
       destination: dir.path
     };
 
-    return scalajsc('test/assets/MyList.scala', config).then(function(stdout) {
+    return scalajsc(path.resolve('test/assets/MyList.scala'), config).then(function(stdout) {
+      console.log(stdout);
       assert(stdout === '');
     });
   });

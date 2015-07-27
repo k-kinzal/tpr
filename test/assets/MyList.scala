@@ -198,7 +198,7 @@ object MyList {
   @JSExport
   def empty[A]: MyList[A] = MyNil
 
-  @JSExport
+  @JSExport("apply")
   def apply[A](as: A*): MyList[A] =
     as.foldRight(empty[A])(MyCons(_, _))
 

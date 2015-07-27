@@ -89,11 +89,14 @@ scalajsc.help = function()/*: Promise<ScalajscHelp>*/ {
 
     return {
       usage: lines[0].match(/Usage: (.+)/)[1],
-      options: lines.splice(2).map((line) => {
+      options: lines.map((line, index) => {
+        if (line.trim() === '-P:scalajs:mapSourceURI:FROM_URI[->TO_URI]') {
+          return {option: line.trim(), description: lines[index + 1].trim()};
+        }
         var m = line.trim().match(/^(\-.+?|@.+?)\s{2,}(.+?)$/);
 
         return m && {option: m[1], description: m[2]};
-      }),
+      }).filter((v) => v !== null),
       _raw: result.stderr
     };
   }).fail((err) => {
