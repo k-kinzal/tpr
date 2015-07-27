@@ -14,7 +14,7 @@ describe('scalajsld:', function() {
   it('support options', function() {
     return scalajsld.help().then(function(result) {
       assert(result.usage === 'scalajsld [options] <value> ...');
-      assert(result.options.length === 16);
+      assert(result.options.length === 18);
       assert(result.options[0].option  === '-o <file> | --output <file>');
       assert(result.options[1].option  === '-jo <file> | --jsoutput <file>');
       assert(result.options[2].option  === '-f | --fastOpt');
