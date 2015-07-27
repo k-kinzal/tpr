@@ -70,7 +70,6 @@ describe('scalajsc:', function() {
     };
 
     return scalajsc(path.resolve('test/assets/MyList.scala'), config).then(function(stdout) {
-      console.log(stdout);
       assert(stdout === '');
     });
   });
