@@ -63,21 +63,6 @@ export default function scalajsc(
   });
 }
 /**
- * Print program
- * @param {string|string[]} files array of Scala file
- * @return {Promise<string>} print string
- */
-scalajsc.print = function(
-  files/*: string | Array<string> */)/*: Promise<string>*/ {
-  var args = ['-print'].concat(files);
-  var options = { capture: [ 'stdout', 'stderr' ]};
-  return spawn(command, args, options).then((result) => {
-    return result.stdout;
-  }).fail((err) => {
-    throw new Error(err.stderr);
-  });
-};
-/**
  * Get the help of scalajsc
  * @return {Promise[ScalajscHelp]} version string
  */

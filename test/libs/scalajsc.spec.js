@@ -55,12 +55,6 @@ describe('scalajsc:', function() {
     });
   });
 
-  it("should print program", function() {
-    return scalajsc.print('test/assets/MyList.scala').then(function(stdout) {
-      assert(stdout.match(/MyList/));
-    });
-  });
-
   it("should be success in compile", function() {
     var TempDir = require('temporary').Dir;
     var dir = new TempDir();
