@@ -29,7 +29,11 @@ module.exports = function scalajs(
 
     }).then((directoryPath) => {
       if (option.output) {
-        fs.mkdirSync(path.dirname(option.output));
+        try {
+          fs.mkdirSync(path.dirname(option.output));
+        } catch (e) {
+          if ( e.code != 'EEXIST' ) throw e;
+        }
       }
 
       return directoryPath;
