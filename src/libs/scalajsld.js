@@ -1,6 +1,7 @@
 /* @flow */
 'use strict';
 // import
+import {glob} from 'glob';
 import {execSync} from 'child_process';
 import {spawn} from 'child-process-promise';
 // initialize
@@ -8,7 +9,8 @@ var command = (() => {
   try {
     return execSync('which scalajsld').toString().replace(/[\n\r]/g, '');
   } catch (err) {
-    return process.env.PWD + '/node_modules/.bin/scalajsld';
+    return glob.sync('**/node_modules/.bin/scalajsld').shift()
+      || process.env.PWD + '/node_modules/.bin/scalajsld';
   }
 })();
 /**
