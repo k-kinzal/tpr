@@ -12,7 +12,7 @@
   },
   "scripts": {
     "build": "babel src --out-dir dest --source-maps-inline",
-    "example": "(cd example && npm run example)",
+    "example": "npm run build && (cd example && rm -rf node_modules && npm run example)",
     "test": "flow check && mocha test/**/*.spec.js",
     "postinstall": "scalajs-standalone-bin-install"
   },

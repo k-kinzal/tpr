@@ -1,5 +1,7 @@
 .tmp/
 dest/
+example/dest/
+example/node_modules/
 node_modules/
 src/acc/
 .DS_Store
