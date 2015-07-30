@@ -1,0 +1,11 @@
+{
+  "name": "example",
+  "version": "0.0.0",
+  "description": "",
+  "scripts": {
+    "example": "rm -rf node_modules && npm install && tpr --version"
+  },
+  "dependencies": {
+    "tpr": "file:../"
+  }
+}

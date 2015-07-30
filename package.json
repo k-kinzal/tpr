@@ -12,6 +12,7 @@
   },
   "scripts": {
     "build": "babel src --out-dir dest --source-maps-inline",
+    "example": "(cd example && npm run example)",
     "test": "flow check && mocha test/**/*.spec.js"
   },
   "repository": {
