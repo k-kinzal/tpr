@@ -2,6 +2,8 @@
 'use strict';
 // import
 import {Dir, File} from 'temporary';
+import fs from 'fs';
+import path from 'path';
 import scalajsc from '../libs/scalajsc';
 import scalajsld from '../libs/scalajsld';
 /**
@@ -24,6 +26,13 @@ module.exports = function scalajs(
       return scalajsc(files, scalajscOption).then(() => {
         return directoryPath;
       });
+
+    }).then((directoryPath) => {
+      if (option.output) {
+        fs.mkdirSync(path.dirname(option.output));
+      }
+
+      return directoryPath;
 
     }).then((directoryPath) => {
       var scalajsldOption = {
