@@ -1,6 +1,6 @@
 {
   "name": "tpr",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Support tools that deal with Scala.js in the project of the npm.",
   "main": "dest/transpiler.js",
   "files": [
