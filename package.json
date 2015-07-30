@@ -13,7 +13,8 @@
   "scripts": {
     "build": "babel src --out-dir dest --source-maps-inline",
     "example": "(cd example && npm run example)",
-    "test": "flow check && mocha test/**/*.spec.js"
+    "test": "flow check && mocha test/**/*.spec.js",
+    "postinstall": "scalajs-standalone-bin-install"
   },
   "repository": {
     "type": "git",
@@ -30,7 +31,7 @@
     "commander": "^2.8.1",
     "glob": "^5.0.13",
     "path": "^0.11.14",
-    "scalajs-standalone-bin": "^0.4.1",
+    "scalajs-standalone-bin": "^0.4.2",
     "temporary": "^0.0.8"
   },
   "devDependencies": {
